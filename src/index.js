@@ -1,17 +1,34 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { HashRouter } from 'react-router-dom'; // HashRouter avoids dev-server routing issues
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './App.css';
+
+function ErrorBoundary({ children }) {
+  const [err, setErr] = React.useState(null);
+  if (err) {
+    return (
+      <pre style={{whiteSpace:'pre-wrap', color:'crimson', padding:16, background:'#fff3f3', border:'1px solid #f5c2c7'}}>
+        {String(err.stack || err)}
+      </pre>
+    );
+  }
+  return (
+    <React.Suspense fallback={<div style={{padding:16}}>Loading…</div>}>
+      <Catch setErr={setErr}>{children}</Catch>
+    </React.Suspense>
+  );
+}
+function Catch({ setErr, children }) {
+  try { return children; } catch (e) { setErr(e); return null; }
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <HashRouter>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </HashRouter>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
