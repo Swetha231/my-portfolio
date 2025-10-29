@@ -1,19 +1,33 @@
-import { Link, NavLink } from 'react-router-dom';
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function MyNavbar() {
   return (
-    <header className="nav">
-      <div className="container nav-inner">
-        <Link to="/" className="brand">Know Thyself, Be Happy</Link>
-        <nav className="links">
-          <NavLink to="/about-author">About the Author</NavLink>
-          <NavLink to="/about-book">About the Book</NavLink>
-          <NavLink to="/buy">Buy</NavLink>
-          <NavLink to="/coaching">Coaching</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
-        </nav>
-        <Link to="/buy" className="btn small">Get the Book</Link>
-      </div>
-    </header>
+    <Navbar expand="lg" bg="light" variant="light" sticky="top">
+      <Container>
+        {/* Brand / Logo */}
+        <Navbar.Brand as={Link} to="/" className="fw-bold">
+          Swetha Sivakumar
+        </Navbar.Brand>
+
+        {/* Collapsible Hamburger for mobile */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/about-me">
+              About Me
+            </Nav.Link>
+            <Nav.Link as={Link} to="/achievements">
+              Achievements
+            </Nav.Link>
+            <Nav.Link as={Link} to="/projects">
+              Projects
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
