@@ -28,7 +28,7 @@ export default function Achievements() {
             </ul>
           </div>
           <img
-            src={`${process.env.PUBLIC_URL}/squash.jpg`}
+            src={`${process.env.PUBLIC_URL}/squash.JPG`}
             alt="Squash"
             className="info-image"
           />
