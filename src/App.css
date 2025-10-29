@@ -205,3 +205,39 @@ footer .bottom {
     grid-template-columns: 1fr;
   }
 }
+
+.info-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9ff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.info-content {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.info-image {
+  width: 200px;           /* 👈 small and neat */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;          /* prevents squashing */
+}
+
+/* optional: stack vertically on mobile */
+@media (max-width: 600px) {
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .info-image {
+    margin-top: 12px;
+    width: 140px;
+  }
+}

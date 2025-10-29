@@ -5,12 +5,12 @@ export default function Home() {
         <div>
           <h1>Swetha Sivakumar</h1>
           <p className="lead">
-            Student-Athelete from Singapore studying at Yale University, interested in tech policy. 
+            Student-Athlete from Singapore studying at Yale University, interested in tech policy.
           </p>
         </div>
         <div>
           <img
-            src="/swetha.JPG"
+            src={`${process.env.PUBLIC_URL}/swetha.JPG`}
             alt="Swetha Sivakumar"
             className="profile-photo"
           />

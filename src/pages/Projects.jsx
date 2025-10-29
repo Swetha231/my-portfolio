@@ -3,16 +3,17 @@ export default function Projects() {
     <section className="section">
       <h2>My Projects</h2>
 
+      {/* ===== Project 1 ===== */}
       <div className="project">
         <h3>Research Paper: PPO and Q-learning in OpenAI Gym</h3>
         <p>
-          Comparing PPO and Q-Learning in the cartpole environment.  
+          Comparing PPO and Q-Learning in the CartPole environment.
         </p>
 
         {/* Embedded PDF viewer */}
         <div style={{ width: "100%", height: "90vh", marginTop: "20px" }}>
           <iframe
-            src="/CSEE.pdf"
+            src={`${process.env.PUBLIC_URL}/CSEE.pdf`}
             width="100%"
             height="100%"
             style={{
@@ -23,9 +24,10 @@ export default function Projects() {
           />
         </div>
       </div>
-      {/* Project 2 */}
+
+      {/* ===== Project 2 ===== */}
       <div className="project" style={{ marginTop: "60px" }}>
-        <h3>Paper: Modelling bus arrivals with Poisson Distrbution </h3>
+        <h3>Paper: Modelling Bus Arrivals with Poisson Distribution</h3>
         <p>
           Mathematical modeling of bus arrival intervals using Poisson and
           arithmetic progression analysis to optimize scheduling.
@@ -34,7 +36,7 @@ export default function Projects() {
         {/* Embedded second PDF viewer */}
         <div style={{ width: "100%", height: "90vh", marginTop: "20px" }}>
           <iframe
-            src="/Bus.pdf"
+            src={`${process.env.PUBLIC_URL}/Bus.pdf`}
             width="100%"
             height="100%"
             style={{
